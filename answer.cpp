@@ -174,7 +174,17 @@ void levels(struct node* root,int c,int &ma)
     	if(c>ma)
             ma=c;
 }
-
+void *MergeTrees(Node * t1, Node * t2) 
+{ 
+    if (!t1) 
+        return t2; 
+    if (!t2) 
+        return t1; 
+    t1->data += t2->data; 
+    t1->left = MergeTrees(t1->left, t2->left); 
+    t1->right = MergeTrees(t1->right, t2->right); 
+    return t1; 
+} 
 
 
 int main()
